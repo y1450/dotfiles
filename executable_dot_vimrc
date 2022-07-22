@@ -1,0 +1,380 @@
+"Plugins 
+call plug#begin('~/.vim/plugged')
+Plug 'danielpieper/telescope-tmuxinator.nvim'
+" telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" git branch management
+Plug 'junegunn/vim-easy-align'
+Plug 'vim-airline/vim-airline'
+Plug 'mattn/vim-gist'
+Plug 'mattn/webapi-vim'
+Plug 'Igorjan94/codeforces.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'mhinz/vim-startify'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+"Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" If you want to display icons, then use one of these plugins:
+" Stable version of coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+" On-demand lazy load
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
+Plug 'unblevable/quick-scope'
+Plug 'ackyshake/vim-fist'
+Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
+"Targets
+Plug 'wellle/targets.vim'
+"Color 
+"
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'jpalardy/vim-slime'
+Plug 'junegunn/gv.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-commentary'
+Plug 'justinmk/vim-sneak'
+"Latex Compilation 
+
+Plug 'lervag/vimtex'
+" Plug 'KeitaNakamura/tex-conceal.vim'
+
+
+" Eye Candy
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+"Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+"let g:instant_markdown_mathjax = 1
+
+"let g:md_pdf_viewer="zathura"
+
+Plug 'skywind3000/asyncrun.vim'
+Plug 'psliwka/vim-smoothie'
+
+"Fuzzy Findder
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+
+" Git Based  
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'sheerun/vim-polyglot'
+Plug 'sodapopcan/vim-twiggy'
+"Themes
+Plug 'morhetz/gruvbox'
+
+"Status Line
+Plug 'itchyny/lightline.vim'
+"Tmux related plugin
+Plug 'christoomey/vim-tmux-navigator'
+
+" File Explorer 
+"Development related plugins 
+"Ctags 
+Plug 'ludovicchabant/vim-gutentags'
+
+" AutoCompletion for python
+"Plug 'deoplete-plugins/deoplete-jedi'
+
+" Distraction free mode for writing
+Plug 'junegunn/goyo.vim'
+" Snippets
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+Plug 'mbbill/undotree'
+call plug#end()
+" Map leader key to space
+let mapleader = " "
+" Open Nerd Tree by default
+let g:deoplete#enable_at_startup = 1
+
+"set Gdiff to open vertical split
+set diffopt+=vertical
+set number
+set spelllang=en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+syntax enable
+set background=dark
+
+set termguicolors
+let g:gruvbox_contrast_dark = "medium"
+colorscheme gruvbox
+
+"Latex Setting 
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=2
+let g:tex_conceal="abdgm"
+" set g:conceallevel=0
+" let g:tex_conceal='abdmg'
+
+" coc dont start at startup
+let g:coc_start_at_startup = v:false
+"Slip Window
+nmap <leader>s :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+" Fuzzy file finder mapping 
+nnoremap <silent> <leader>f :FZF<cr>
+nnoremap <silent> <leader>F :FZF ~<cr>
+" Zooom in and out of windows
+noremap Zz <c-w>_ \| <c-w>\|
+noremap Zo <c-w>=
+
+" Custom Mapping 
+set relativenumber
+""""""""""""""""""
+"  FZF MAPPINGS  "
+""""""""""""""""""
+
+nnoremap <leader><leader> :GFiles<CR>
+nnoremap <leader>fi :Files<CR>
+nnoremap <leader>ft       :BTags<CR>
+nnoremap <leader>pt       :Tags<CR>
+autocmd FileType markdown colorscheme onedark
+set tabstop=2 shiftwidth=2 expandtab
+
+"set vim to copy by default to system clipboard
+set clipboard=unnamedplus
+
+"To prevent x to write to unmaedplus clipboard
+nnoremap x "_x 
+nnoremap X "_x 
+"add commnet
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
+inoremap jk <ESC>
+let g:slime_target = "tmux"
+nnoremap <Leader>c :IPythonCellExecuteCell<CR>
+" https://vi.stackexchange.com/questions/8382/vim-doesnt-use-the-correct-indentation-in-python-files
+
+
+"------------------------------------------------------------------------------
+" ipython-cell configuration
+"------------------------------------------------------------------------------
+" Keyboard mappings. <Leader> is \ (backslash) by default
+
+" map <Leader>s to start IPython
+nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
+
+" map <Leader>r to run script
+nnoremap <Leader>r :IPythonCellRun<CR>
+
+" map <Leader>R to run script and time the execution
+nnoremap <Leader>R :IPythonCellRunTime<CR>
+
+" map <Leader>c to execute the current cell
+nnoremap <Leader>c :IPythonCellExecuteCell<CR>
+
+" map <Leader>C to execute the current cell and jump to the next cell
+nnoremap <Leader>C :IPythonCellExecuteCellJump<CR>
+
+" map <Leader>l to clear IPython screen
+nnoremap <Leader>l :IPythonCellClear<CR>
+
+" map <Leader>x to close all Matplotlib figure windows
+nnoremap <Leader>x :IPythonCellClose<CR>
+
+" map [c and ]c to jump to the previous and next cell header
+nnoremap [c :IPythonCellPrevCell<CR>
+nnoremap ]c :IPythonCellNextCell<CR>
+
+" map <Leader>h to send the current line or current selection to IPython
+nmap <Leader>h <Plug>SlimeLineSend
+xmap <Leader>h <Plug>SlimeRegionSend
+
+" map <Leader>p to run the previous command
+nnoremap <Leader>p :IPythonCellPrevCommand<CR>
+
+" map <Leader>Q to restart ipython
+nnoremap <Leader>Q :IPythonCellRestart<CR>
+
+" map <Leader>d to start debug mode
+nnoremap <Leader>d :SlimeSend1 %debug<CR>
+
+" map <Leader>q to exit debug mode or IPython
+nnoremap <Leader>q :SlimeSend1 exit<CR>
+nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
+nnoremap <C-l> <C-i>
+let g:goto_header_includes_dirs = [".", "/usr/include", "..", "~"]
+let g:goto_header_use_find = 0      " keep using fd
+let g:goto_header_search_flags = "-t f -s"
+let g:goto_header_excludes_dirs = []
+let g:goto_header_open_in_new_tab = 0
+let g:goto_header_use_shorter_path = 0
+nnoremap gh :GotoHeaderSwitch <CR>
+nnoremap <C-g> :Rg<Cr>
+nnoremap <leader>vv :grep <cword> */**<CR>:cwindow<CR>
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Trigger a highlight only when pressing f and F.
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
+
+let g:qs_max_chars=150
+Plug 'brooth/far.vim'
+
+
+set nofoldenable
+Plug 'mhinz/vim-signify'
+
+" Debugging
+"let g:vimspector_enable_mappings = 'HUMAN'
+"nmap <leader>dd :call vimspector#Launch()<CR>
+"nmap <leader>dx :call vimspector#Reset()<CR>
+"nmap <leader>de :VimspectorEval 
+"nmap <leader>dw :VimspectorWatch 
+"nmap <leader>do :VimspectorShowOutput
+"nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+"nnoremap <leader>m :MaximizerToggle!<CR>
+"nmap <leader>drc <Plug>VimspectorRunToCursor
+"nmap <Leader>di <Plug>VimspectorBalloonEval
+"" for visual mode, the visually selected text
+"xmap <Leader>di <Plug>VimspectorBalloonEval
+
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gk :diffget //2<CR>
+nmap <leader>gs :G<CR>
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
+
+" case insensitive sneak
+let g:sneak#use_ic_scs = 1
+
+" immediately move to the next instance of search, if you move the cursor sneak is back to default behavior
+let g:sneak#s_next = 1
+
+" remap so I can use , and ; with f and t
+
+
+let g:sneak#label = 1
+" Change the colors
+highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
+highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
+
+" Cool prompts
+" let g:sneak#prompt = '🕵'
+let g:sneak#prompt = '🔎'
+
+" I like quickscope better for this since it keeps me in the scope of a single line
+map s <Plug>Sneak_s
+map S <Plug>Sneak_S
+
+" Change the colors
+highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
+highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
+"map gS <Plug>Sneak_,
+"map gs <Plug>Sneak_;
+
+" case insensitive sneak
+let g:sneak#use_ic_scs = 1
+
+let g:sneak#s_next = 0
+" map F <Plug>Sneak_F
+" map t <Plug>Sneak_t
+" map T <Plug>Sneak_T
+"
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ }
+fun! GotoWindow(id)
+    call win_gotoid(a:id)
+    MaximizerToggle
+endfun
+
+" Debugger remaps
+nnoremap <leader>m :MaximizerToggle!<CR>
+nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+nnoremap <leader>de :call vimspector#Reset()<CR>
+
+nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
+
+nmap <leader>dl <Plug>VimspectorStepInto
+nmap <leader>dj <Plug>VimspectorStepOver
+nmap <leader>dk <Plug>VimspectorStepOut
+nmap <leader>d_ <Plug>VimspectorRestart
+nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+
+nmap <leader>drc <Plug>VimspectorRunToCursor
+nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+
+" <Plug>VimspectorStop
+" <Plug>VimspectorPause
+" <Plug>VimspectorAddFunctionBreakpoint
+command! -bang -nargs=* CustomBLines
+    \ call fzf#vim#grep(
+    \   'ag --with-filename --column --line-number --no-heading --smart-case . '.fnameescape(expand('%:p')), 1,
+    \   fzf#vim#with_preview({'options': '--layout reverse --query '.shellescape(<q-args>).' --with-nth=4.. --delimiter=":"'}, 'right:50%'))
+    " \   fzf#vim#with_preview({'options': '--layout reverse  --with-nth=-1.. --delimiter="/"'}, 'right:50%'))
+
+command! -nargs=+ Bag
+  \ call fzf#vim#grep('ag --vimgrep '.shellescape(<q-args>).' '.shellescape(expand('%')), 1)
+" enable tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+" enable powerline fonts
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+" Switch to your current theme
+let g:airline_theme = 'gruvbox'
+
+" Always show tabs
+set showtabline=2
+
+" We don't need to see things like -- INSERT -- anymore
+set noshowmode
+let g:twiggy_split_position = 'rightbelow'
+set cmdheight=1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+nnoremap <Leader>t :Twiggy<Enter>
+let g:tex_comment_nospell=1
+let g:vimtex_syntax_conceal_default = 0
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-y': {lines -> setreg('+', join(lines, "\n"))}}
