@@ -1,0 +1,18 @@
+! remove Caps Lock
+clear Lock
+! add Mode_switch, Escape is caps lock
+keycode 66 = Mode_switch  Mode_switch
+! global hjkl
+keycode 45 = k K Up
+keycode 43 = h H Left
+keycode 44 = j J Down
+keycode 46 = l L Right
+! caps + o 
+keysym i = i I Home
+keysym o = o O End
+keysym u = u U Prior
+keysym p = p P Next
+keysym o = o O End
+keysym x = x X Delete
+! map semicolon to f6 , used for get input to browser url
+keycode 47 = semicolon colon F6 
