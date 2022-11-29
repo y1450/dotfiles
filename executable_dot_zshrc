@@ -1,0 +1,144 @@
+#bindkey -M vicmd "k" history-substring-search-up zshrc file is from lukesmith.xyz
+if [ ! -d ~/.zplug ]; then
+  echo "does not exist"
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+source ~/.zplug/init.zsh
+autoload -U colors && colors
+
+
+# History in cache directory: 
+HISTSIZE=10000
+HISTFILE=~/.zhistory SAVEHIST=10000 
+setopt    appendhistory
+setopt    incappendhistory
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=0.5
+
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
+}
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+#bindkey '^R' history-incremental-search-backward
+#bindkey '^R' fh()
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+# Load zsh-syntax-highlighting; should be last.
+export LANG=en_US.UTF-8
+#zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "plugins/fasd",   from:oh-my-zsh
+zplug load
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_DOCKER_SHOW=false
+
+
+eval "$(starship init zsh)"
+# Alias for git bare repository
+# Ctrl + Space to accept the suggestion
+bindkey '^ ' autosuggest-accept
+
+# Check if dotbare is installed or not
+if [ ! -d ~/.dotbare ]; then
+  # Take action if $DIR exists. #
+  echo "Installing config files in ${DIR}..."
+fi
+
+  export PATH="/home/rahul/.pyenv/bin:$PATH"
+# Dotbare configs
+export DOTBARE_DIR="$HOME/.cfgs"
+export DOTBARE_FZF_DEFAULT_OPTS="--preview-window=right:65%"
+export EDITOR=nvim
+
+# FZF configs.
+#export FZF_DEFAULT_COMMAND='fd --type f'
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='ag -l --path-to-ignore ~/.ignore --nocolor --hidden -g ""'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.dotbare/dotbare.plugin.zsh
+#https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
+
+
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/rahul/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/rahul/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/rahul/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/rahul/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# source tmuxinator fzf start 
+export PATH="$HOME/projects/tmuxinator-fzf-start:$PATH"
+export DISABLE_AUTO_TITLE=true
+export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH 
+
+PATH="/home/rahul/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/rahul/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/rahul/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/rahul/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/rahul/perl5"; export PERL_MM_OPT;
+
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_zsh
+fi
+
+export PATH=/home/rahul/.local/bin:$PATH 
+alias tkill="for s in \$(tmux list-sessions | awk '{print \$1}' | rg ':' -r '' | fzf); do tmux kill-session -t \$s; done;"
