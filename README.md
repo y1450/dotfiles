@@ -1,6 +1,5 @@
-# My dotfiles managed by ![Chezmoi](https://www.chezmoi.io)
+My dotfiles managed by ![Chezmoi](https://www.chezmoi.io)
 
-# Applications 
 | Application | Usage      |
 |-------------|------------|
 | ![DWM](https://dwm.suckless.org) | Window Manager   |
