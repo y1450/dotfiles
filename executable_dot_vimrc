@@ -104,6 +104,7 @@ call plug#end('~/.vim/plugged')
 
 
 
+call plug#end()
 
 
 
