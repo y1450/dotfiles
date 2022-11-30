@@ -1,13 +1,10 @@
-# dotfiles
+# My dotfiles managed by ![Chezmoi](https://www.chezmoi.io/)
 
-# Window Manager 
-DWM 
-
-# Applications
-Flameshot: taking screenshot
-Notes: logseq
-Alacritty  : Editor
-Editor :  Neovim
-Zeal : Documentation
-
-# Tmux Config
+# Applications 
+| Application | Usage      |
+|-------------|------------|
+| ![DWM](https://dwm.suckless.org/) | Window Manager   |
+| ![Alacritty](https://github.com/alacritty/alacritty) | Terminal   |
+| ![Neovim](https://neovim.io/)      | Editor     |
+| ![Flameshot](https://flameshot.org/#download)   | Screenshot |
+| ![Logseq](https://logseq.com/)      | Notetaking |
