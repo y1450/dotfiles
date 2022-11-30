@@ -16,13 +16,10 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" If you want to display icons, then use one of these plugins:
-" Stable version of coc
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" tree sitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
-" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+"__________ tree sitter ______________-
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " On-demand lazy load
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
@@ -137,7 +134,6 @@ map <leader>p :bp<cr>
 map <leader>bd :bd<cr>
 
 
-autocmd FileType markdown colorscheme onedark
 " Open Nerd Tree by default
 let g:deoplete#enable_at_startup = 1
 
