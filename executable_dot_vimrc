@@ -46,16 +46,6 @@ Plug 'justinmk/vim-sneak'
 "Latex Compilation 
 Plug 'lervag/vimtex'
 
-" Plug 'KeitaNakamura/tex-conceal.vim'
-
-
-" Eye Candy
-" Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
-"Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-"let g:instant_markdown_mathjax = 1
-
-"let g:md_pdf_viewer="zathura"
-
 Plug 'skywind3000/asyncrun.vim'
 Plug 'psliwka/vim-smoothie'
 
@@ -100,8 +90,6 @@ Plug 'mhinz/vim-signify'
 Plug 'mbbill/undotree'
 
 Plug 'brooth/far.vim'
-call plug#end('~/.vim/plugged')
-
 
 
 call plug#end()
