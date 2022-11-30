@@ -1,18 +1,16 @@
 "Plugins 
 call plug#begin('~/.vim/plugged')
-Plug 'danielpieper/telescope-tmuxinator.nvim'
+" lsp win bar
+" Plug 'danielpieper/telescope-tmuxinator.nvim'
 " telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
 " git branch management
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
-Plug 'mattn/vim-gist'
-Plug 'mattn/webapi-vim'
-Plug 'Igorjan94/codeforces.vim'
 Plug 'Yggdroot/indentLine'
-Plug 'mhinz/vim-startify'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 "Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'ryanoasis/vim-devicons'
@@ -20,8 +18,12 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " If you want to display icons, then use one of these plugins:
 " Stable version of coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+" Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 " On-demand lazy load
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'puremourning/vimspector'
@@ -31,6 +33,7 @@ Plug 'ackyshake/vim-fist'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 "Targets
 Plug 'wellle/targets.vim'
+
 "Color 
 "
 Plug 'norcalli/nvim-colorizer.lua'
@@ -39,14 +42,15 @@ Plug 'junegunn/gv.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-commentary'
 Plug 'justinmk/vim-sneak'
-"Latex Compilation 
 
+"Latex Compilation 
 Plug 'lervag/vimtex'
+
 " Plug 'KeitaNakamura/tex-conceal.vim'
 
 
 " Eye Candy
-Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
+" Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 "Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 "let g:instant_markdown_mathjax = 1
 
@@ -64,6 +68,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'sheerun/vim-polyglot'
 Plug 'sodapopcan/vim-twiggy'
+
 "Themes
 Plug 'morhetz/gruvbox'
 
@@ -79,19 +84,71 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " AutoCompletion for python
 "Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'neovim/nvim-lspconfig'
 
-" Distraction free mode for writing
+Plug 'SmiteshP/nvim-navic'
+
+"___________ Distraction free mode for writing ___"
 Plug 'junegunn/goyo.vim'
-" Snippets
+
+"____________ Snippets _____________________"
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+
+Plug 'mhinz/vim-signify'
+
+Plug 'mbbill/undotree'
+
+Plug 'brooth/far.vim'
+call plug#end('~/.vim/plugged')
+
+
+
+
+
+
+
+
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-Plug 'mbbill/undotree'
-call plug#end()
-" Map leader key to space
+
+
+"______________ Keymaps ________________ "
 let mapleader = " "
+"Slip Window
+nmap <leader>s :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+" Fuzzy file finder mapping 
+nnoremap <silent> <leader>f :FZF<cr>
+nnoremap <silent> <leader>F :FZF ~<cr>
+" Zooom in and out of windows
+noremap Zz <c-w>_ \| <c-w>\|
+noremap Zo <c-w>=
+" nnoremap <leader><leader> :GFiles<CR>
+nnoremap <leader>fi :Files<CR>
+nnoremap <leader>ft       :BTags<CR>
+nnoremap <leader>pt       :Tags<CR>
+inoremap jk <ESC>
+
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'ctrl-y': {lines -> setreg('+', join(lines, "\n"))}}
+" next previous buffer
+" 
+set hidden
+map <leader>n :bn<cr>
+map <leader>p :bp<cr>
+map <leader>bd :bd<cr>
+
+
+autocmd FileType markdown colorscheme onedark
 " Open Nerd Tree by default
 let g:deoplete#enable_at_startup = 1
 
@@ -105,7 +162,6 @@ set background=dark
 
 set termguicolors
 let g:gruvbox_contrast_dark = "medium"
-colorscheme gruvbox
 
 "Latex Setting 
 let g:tex_flavor='latex'
@@ -116,17 +172,8 @@ let g:tex_conceal="abdgm"
 " set g:conceallevel=0
 " let g:tex_conceal='abdmg'
 
-" coc dont start at startup
-let g:coc_start_at_startup = v:false
-"Slip Window
-nmap <leader>s :split<Return><C-w>w
-nmap sv :vsplit<Return><C-w>w
-" Fuzzy file finder mapping 
-nnoremap <silent> <leader>f :FZF<cr>
-nnoremap <silent> <leader>F :FZF ~<cr>
-" Zooom in and out of windows
-noremap Zz <c-w>_ \| <c-w>\|
-noremap Zo <c-w>=
+
+
 
 " Custom Mapping 
 set relativenumber
@@ -134,11 +181,7 @@ set relativenumber
 "  FZF MAPPINGS  "
 """"""""""""""""""
 
-nnoremap <leader><leader> :GFiles<CR>
-nnoremap <leader>fi :Files<CR>
-nnoremap <leader>ft       :BTags<CR>
-nnoremap <leader>pt       :Tags<CR>
-autocmd FileType markdown colorscheme onedark
+
 set tabstop=2 shiftwidth=2 expandtab
 
 "set vim to copy by default to system clipboard
@@ -147,12 +190,12 @@ set clipboard=unnamedplus
 "To prevent x to write to unmaedplus clipboard
 nnoremap x "_x 
 nnoremap X "_x 
+
 "add commnet
 augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
-inoremap jk <ESC>
 let g:slime_target = "tmux"
 nnoremap <Leader>c :IPythonCellExecuteCell<CR>
 " https://vi.stackexchange.com/questions/8382/vim-doesnt-use-the-correct-indentation-in-python-files
@@ -225,11 +268,9 @@ highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=unde
 highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
 
 let g:qs_max_chars=150
-Plug 'brooth/far.vim'
 
 
 set nofoldenable
-Plug 'mhinz/vim-signify'
 
 " Debugging
 "let g:vimspector_enable_mappings = 'HUMAN'
@@ -304,27 +345,27 @@ fun! GotoWindow(id)
 endfun
 
 " Debugger remaps
-nnoremap <leader>m :MaximizerToggle!<CR>
-nnoremap <leader>dd :call vimspector#Launch()<CR>
-nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
-nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
-nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
-nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
-nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
-nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
-nnoremap <leader>de :call vimspector#Reset()<CR>
+" nnoremap <leader>m :MaximizerToggle!<CR>
+" nnoremap <leader>dd :call vimspector#Launch()<CR>
+" nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+" nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+" nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+" nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+" nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+" nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+" nnoremap <leader>de :call vimspector#Reset()<CR>
 
-nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
+" nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
 
-nmap <leader>dl <Plug>VimspectorStepInto
-nmap <leader>dj <Plug>VimspectorStepOver
-nmap <leader>dk <Plug>VimspectorStepOut
-nmap <leader>d_ <Plug>VimspectorRestart
-nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+" nmap <leader>dl <Plug>VimspectorStepInto
+" nmap <leader>dj <Plug>VimspectorStepOver
+" nmap <leader>dk <Plug>VimspectorStepOut
+" nmap <leader>d_ <Plug>VimspectorRestart
+" nnoremap <leader>d<space> :call vimspector#Continue()<CR>
 
-nmap <leader>drc <Plug>VimspectorRunToCursor
-nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
-nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+" nmap <leader>drc <Plug>VimspectorRunToCursor
+" nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+" nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
 
 " <Plug>VimspectorStop
 " <Plug>VimspectorPause
@@ -337,12 +378,11 @@ command! -bang -nargs=* CustomBLines
 
 command! -nargs=+ Bag
   \ call fzf#vim#grep('ag --vimgrep '.shellescape(<q-args>).' '.shellescape(expand('%')), 1)
+
 " enable tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" let g:airline#extensions#tabline#left_sep = ' '
 
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
@@ -353,7 +393,7 @@ let g:airline_right_sep = ''
 let g:airline_theme = 'gruvbox'
 
 " Always show tabs
-set showtabline=2
+" set showtabline=2
 
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
@@ -363,18 +403,10 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 nnoremap <Leader>t :Twiggy<Enter>
 let g:tex_comment_nospell=1
 let g:vimtex_syntax_conceal_default = 0
-nnoremap j gj
-nnoremap gj j
-nnoremap k gk
-nnoremap gk k
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit',
-  \ 'ctrl-y': {lines -> setreg('+', join(lines, "\n"))}}
+  
