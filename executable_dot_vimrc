@@ -88,6 +88,10 @@ Plug 'mbbill/undotree'
 
 Plug 'brooth/far.vim'
 
+" __ change surround text
+"  add a new keyword to vim language that is s
+"  eg. csi'" change 'Hello world!' to  "Hello world!"
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
