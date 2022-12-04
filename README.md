@@ -7,3 +7,4 @@ My dotfiles managed by [Chezmoi](https://www.chezmoi.io)
 | [Neovim](https://neovim.io)      | Editor     |
 | [Flameshot](https://flameshot.org/#download)   | Screenshot |
 | [Logseq](https://logseq.com)      | Notetaking |
+| [TDrop](https://github.com/noctuid/tdrop)      | Dropdown application |
