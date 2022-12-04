@@ -110,6 +110,9 @@ Plug 'marko-cerovac/material.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lewis6991/gitsigns.nvim'
+
+" Tabline Plugin 
+Plug 'romgrk/barbar.nvim'
 call plug#end()
 
 
