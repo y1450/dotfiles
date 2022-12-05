@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 " lsp win bar
 " Plug 'danielpieper/telescope-tmuxinator.nvim'
 " telescope
+Plug 'rebelot/kanagawa.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -117,7 +118,7 @@ call plug#end()
 
 
 " __________ Load the colorscheme
-colorscheme gruvbox
+colorscheme kanagawa
 set termguicolors
 let g:gruvbox_contrast_dark = "medium"
 
@@ -222,7 +223,6 @@ let g:fzf_action = {
   \ 'ctrl-y': {lines -> setreg('+', join(lines, "\n"))}}
 " next previous buffer
 " 
-set hidden
 map <leader>bd :bd<cr>
 
 " ____ buffer nav
