@@ -1,0 +1,33 @@
+alias vim='nvim'
+alias mux='pgrep -vx tmux > /dev/null && tmux new -d -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me && tmux attach || tmux attach'
+
+# arandr monitor settings
+alias shm='~/.screenlayout/home-single-monitor.sh'
+alias shv='~/.screenlayout/vertical-monitor.sh'
+
+# utilities
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias more=less
+
+# Git specific
+alias g='git'
+alias gie='gh issue edit'
+alias gil='gh issue list'
+alias gin='gh issue new'
+
+# tmux scratchpad
+alias tsp='tmux attach -t scratchpad'
+alias ts='tmux new -s scratch' 
+
+# misc
+alias ls='exa'
+
+# Fugitive tmuxinator 
+gcu(){
+  clip=`xclip -o -selection clipboard`
+  echo "URL :"$clip
+  echo "Downloading"
+  git clone $clip '~/git'
+}
