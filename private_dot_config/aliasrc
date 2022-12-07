@@ -18,8 +18,10 @@ alias gil='gh issue list'
 alias gin='gh issue new'
 
 # tmux scratchpad
+alias tmux="env TERM=screen-256color tmux"
 alias tsp='tmux attach -t scratchpad'
 alias ts='tmux new -s scratch' 
+# TMUX bold/italics font
 
 # misc
 alias ls='exa'
