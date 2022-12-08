@@ -27,6 +27,7 @@ unclutter &		# Remove mouse when idle
 exec dwmblocks 2>&1 >/dev/null &
 exec xss-lock -- slock &
 exec dunst &
+exec clipmenud &
 
 
 xcape -t 1000 -e 'Mode_switch=Escape'
