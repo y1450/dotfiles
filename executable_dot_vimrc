@@ -114,6 +114,8 @@ Plug 'lewis6991/gitsigns.nvim'
 
 " Tabline Plugin 
 Plug 'romgrk/barbar.nvim'
+
+Plug 'ThePrimeagen/git-worktree.nvim'
 call plug#end()
 
 
