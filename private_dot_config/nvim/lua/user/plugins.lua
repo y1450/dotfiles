@@ -168,6 +168,8 @@ return packer.startup(function(use)
       opt = true,
     },
   }
+  -- TMUX Navigator
+  use 'christoomey/vim-tmux-navigator'
 
   if PACKER_BOOTSTRAP then
     packer.sync()
