@@ -171,6 +171,15 @@ return packer.startup(function(use)
   -- TMUX Navigator
   use 'christoomey/vim-tmux-navigator'
 
+  -- ZettelKasten
+  use {
+    'renerocksai/telekasten.nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim'
+    },
+  }
+
   if PACKER_BOOTSTRAP then
     packer.sync()
   end

@@ -2,7 +2,7 @@
 local options = {
   backup = false,
   clipboard = "unnamedplus",
-  cmdheight = 2,
+  cmdheight = 1,
   completeopt = { "menuone", "noselect", },
   -- conceallevel = 0,
   fileencoding = "utf-8",
@@ -34,6 +34,9 @@ local options = {
   scrolloff = 8,
   sidescrolloff = 8,
 }
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.opt.shortmess:append "c"
 vim.opt.iskeyword:remove "_"
