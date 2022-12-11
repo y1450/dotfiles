@@ -12,6 +12,7 @@ require "user.config.cmp"
 require "user.config.lsp"
 require "user.config.kanagawa" 
 require "user.config.telekasten" 
+require "user.config.whichkey" 
 -- bug nvim tree does not load 
 require'nvim-tree'.setup {}
 require'git-worktree'.setup {}
