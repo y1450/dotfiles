@@ -1,1 +1,1 @@
-{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":1,"timestamp":1670634407,"nonce":"I21hK3+kkI4A8meXG3gAdpC7WF4=","title":"add which key","message":"","files":null}]}
+{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":8,"timestamp":1670792502,"nonce":"JmevZnDxC/wbxASajB6RZQh5GmE=","target":"7ab66e697ee452a5a5a6a0d5b9235487700ec554692d6fba893526ecfe03197c","new_metadata":{"github-id":"I_kwDOHs9rNs5Y1k4a","github-url":"https://github.com/y1450/dotfiles/issues/27"}}]}
