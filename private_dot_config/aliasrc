@@ -17,6 +17,9 @@ alias gie='gh issue edit'
 alias gil='gh issue list'
 alias gin='gh issue new'
 
+alias gwip="git add . && git commit -nm'wip'"
+alias gpop="git reset HEAD^"
+
 # tmux scratchpad
 alias tmux="env TERM=screen-256color tmux"
 alias tsp='tmux attach -t scratchpad'
