@@ -1,1 +1,1 @@
-{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":3,"timestamp":1670713279,"nonce":"9/U3A03RmIOZW/UlvGtKd2RXw24=","message":"currently i use :Git to open buffer","files":null}]}
+{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":8,"timestamp":1670792498,"nonce":"MviKUiDUGJaAAfPVPNgrlExK+oY=","target":"8afb2eb04d331624a61241e59fa704d5d17bf1a30e4834aaf2a670093082c833","new_metadata":{"github-id":"I_kwDOHs9rNs5Y1k38","github-url":"https://github.com/y1450/dotfiles/issues/23"}}]}
