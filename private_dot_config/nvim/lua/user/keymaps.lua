@@ -43,4 +43,5 @@ keymap("n", "<leader>rr", ":Telescope grep_string<cr>",opts)
 --Keymaps for :w , :wq , :bd
 keymap("n", "<leader>w", ":w<cr>",opts)
 keymap("n", "<leader>q", ":wq<cr>",opts)
+keymap("n", "<leader>Q", ":q<cr>",opts)
 keymap("n", "<leader>bd", ":bd<cr>",opts)
