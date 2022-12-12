@@ -45,3 +45,6 @@ keymap("n", "<leader>w", ":w<cr>",opts)
 keymap("n", "<leader>q", ":wq<cr>",opts)
 keymap("n", "<leader>Q", ":q<cr>",opts)
 keymap("n", "<leader>bd", ":bd<cr>",opts)
+
+-- Close buffers
+keymap("n", "<S-q>", "<cmd>bdelete!<CR>", opts)
