@@ -58,4 +58,4 @@ keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>bdelete!<CR>", opts)
+keymap("n", "<S-q>", "<cmd>bdelete<CR>", opts)
