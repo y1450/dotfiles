@@ -179,6 +179,8 @@ return packer.startup(function(use)
       'nvim-lua/plenary.nvim'
     },
   }
+  --  Comment
+  use "tpope/vim-commentary"
 
   if PACKER_BOOTSTRAP then
     packer.sync()
