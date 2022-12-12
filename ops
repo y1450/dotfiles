@@ -1,1 +1,1 @@
-{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":3,"timestamp":1670809884,"nonce":"rM1rsx256+pvswUXiIf8C4okBPU=","message":"Nice  post on fugitive\nhttps://jeancharles.quillet.org/posts/2022-03-02-Practical-introduction-to-fugitive.html#interactive-rebase\n\n1. Do :Git log \nthen on any commit press `ri` to start rebase.","files":null}]}
+{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":4,"timestamp":1670809966,"nonce":"JkyqSQo3vVTZevzI/ADE+lWpNzA=","status":2}]}
