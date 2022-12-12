@@ -102,6 +102,8 @@ return packer.startup(function(use)
     run = "git submodule update --init --recursive",
   }
 
+  -- brackets mapping 
+  use "tpope/vim-unimpaired"
 
   -- Completion
   use "hrsh7th/nvim-cmp"
