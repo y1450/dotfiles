@@ -126,6 +126,11 @@ return packer.startup(function(use)
   use "RRethy/vim-illuminate"
 
 
+  -- DAP
+  use { "mfussenegger/nvim-dap"}
+  use { "rcarriga/nvim-dap-ui"}
+  use { "ravenxrz/DAPInstall.nvim"}
+
   -- which-key
   use "folke/which-key.nvim"
 
