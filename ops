@@ -1,1 +1,1 @@
-{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":1,"timestamp":1670854201,"nonce":"DC6LJj7Fn9py7/8D70ofdGXx9Qs=","title":"nvim treat _ as a whole word","message":"","files":null}]}
+{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":8,"timestamp":1670928930,"nonce":"PefFRhxLKuLb9/fFdU6FnIsBJMQ=","target":"c5accf716ef7ac0443c9686bfbeff98e898044d618f10b13a2a612171ba73097","new_metadata":{"github-id":"I_kwDOHs9rNs5ZDD8J","github-url":"https://github.com/y1450/dotfiles/issues/30"}}]}
