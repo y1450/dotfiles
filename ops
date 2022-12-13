@@ -1,1 +1,1 @@
-{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":1,"timestamp":1670854182,"nonce":"t8NqPLSh98KEJr2JV0Zqf7Pwka8=","title":"nvim highlight on yank","message":"","files":null}]}
+{"author":{"id":"8bca034224d1fe89a62221c516d9dba8eafd4f8ad7ed8946aff1ff1369ec8099"},"ops":[{"type":8,"timestamp":1670928929,"nonce":"yDCG7KBDNCOTLSiZXKij/cG4yb4=","target":"c99d72e1cd0dbd8d972064782205d9caa25fefe82cc2474125a0221c55982d34","new_metadata":{"github-id":"I_kwDOHs9rNs5ZDD7u","github-url":"https://github.com/y1450/dotfiles/issues/29"}}]}
