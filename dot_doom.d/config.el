@@ -74,3 +74,25 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(use-package! ox-hugo
+  :after org)
+
+;; add TIL org-roam capture templates
+(setq org-roam-capture-templates
+      '(
+        ("d" "default" plain "%?"
+         :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                            "#+title: ${title}\n") :unnarrowed t)
+        ("t" "Today I Learned" plain "%?"
+         :target (file+head "TIL/%<%Y%m%d%H%M%S>-${slug}.org"
+                            "#+title: ${title}\n") :unnarrowed t)
+        )
+      )
+
+; (use-package org-roam
+;   :ensure t
+;   :init
+;   (setq org-roam-v2-ack t)
+;   :custom
+;   (org-roam-directory "~/projects/zameen/org_files"))
+
