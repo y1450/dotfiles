@@ -71,3 +71,4 @@ local disabled_builtins = {
 for _, plugin in pairs(disabled_builtins) do
   vim.g["loaded_" .. plugin] = 1
 end
+vim.api.nvim_create_autocmd('TextYankPost', {group = group, callback = function() vim.highlight.on_yank() end})
