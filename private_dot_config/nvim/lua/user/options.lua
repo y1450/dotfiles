@@ -39,7 +39,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.opt.shortmess:append "c"
-vim.opt.iskeyword:remove "_"
+-- vim.opt.iskeyword:remove "_"
 vim.opt.whichwrap:prepend "<,>,[,],h,l"
 
 for k, v in pairs(options) do
