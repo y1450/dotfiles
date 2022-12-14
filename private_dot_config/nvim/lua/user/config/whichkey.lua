@@ -98,6 +98,10 @@ local mappings = {
 
   g = {
     name = "Git",
+    g = {
+      "<cmd>Telescope git_status<cr>",
+      "Telescope: changed file in index",
+    },
     s = {
       "<cmd>Git<cr>",
       "Open Fugitive",
