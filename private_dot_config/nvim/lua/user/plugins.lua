@@ -156,7 +156,6 @@ return packer.startup(function(use)
     as = "catppuccin",
   }
 
-  use "folke/tokyonight.nvim"
   use "rebelot/kanagawa.nvim"
   use "lukas-reineke/indent-blankline.nvim"
 
