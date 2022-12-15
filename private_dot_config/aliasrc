@@ -13,9 +13,17 @@ alias more=less
 
 # Git specific
 alias g='git'
+alias gs='git status'
+
+# Github Cli
 alias gie='gh issue edit'
 alias gil='gh issue list'
 alias gin='gh issue new'
+
+# Git bug 
+alias gbb='git-bug bridge pull'
+alias gbp='git-bug bridge push'
+alias gbu='git-bug termui'
 
 alias gwip="git add . && git commit -nm'wip'"
 alias gpop="git reset HEAD^"
