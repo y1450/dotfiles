@@ -14,6 +14,9 @@ require "user.config.kanagawa"
 require "user.config.telekasten" 
 require "user.config.whichkey" 
 require "user.config.dap" 
+require "user.config.hop"
 -- bug nvim tree does not load 
+require'hop'.setup()
 require'nvim-tree'.setup {}
 require'git-worktree'.setup {}
+
