@@ -37,6 +37,7 @@ local options = {
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
 
 vim.opt.shortmess:append "c"
 -- vim.opt.iskeyword:remove "_"
