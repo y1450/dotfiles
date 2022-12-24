@@ -80,13 +80,16 @@
 ;; add TIL org-roam capture templates
 (setq org-roam-capture-templates
       '(
-        ("d" "default" plain "%?"
-         :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                            "#+title: ${title}\n") :unnarrowed t)
+        ("n" "Note" plain "%?"
+         :target (file+head "notes/%<%Y%m%d%H%M%S>-${slug}.org"
+                            "#+title: ${title}\n#+date: %U\n") :unnarrowed t)
         ("t" "Today I Learned" plain "%?"
          :target (file+head "TIL/%<%Y%m%d%H%M%S>-${slug}.org"
-                            "#+title: ${title}\n") :unnarrowed t)
-        )
+                            "#+title: ${title}\n#+date: %U\n#+filetags: :TIL:\n") :unnarrowed t)
+        ("b" "blogpost" plain "%?"
+         :target (file+head "blog/%<%Y%m%d%H%M%S>-${slug}.org"
+                            "#+title: ${title}\n#+date: %U\n#+filetags: :blogpost:\n") :unnarrowed t)
+        ))
       )
 
 ;; Org Download
