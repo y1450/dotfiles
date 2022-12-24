@@ -95,4 +95,7 @@
 ;   (setq org-roam-v2-ack t)
 ;   :custom
 ;   (org-roam-directory "~/projects/zameen/org_files"))
+(setq org-download-screenshot-method "shotgun -g $(hacksaw) %s")
+;;(setq org-download-screenshot-method "flameshot gui --raw > %s")
+
 
