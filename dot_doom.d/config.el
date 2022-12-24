@@ -90,6 +90,11 @@
          :target (file+head "blog/%<%Y%m%d%H%M%S>-${slug}.org"
                             "#+title: ${title}\n#+date: %U\n#+filetags: :blogpost:\n") :unnarrowed t)
         ))
+(setq org-journal-dir "/home/rahul/org/roam/daily"
+      org-journal-date-prefix "#+TITLE: "
+      org-journal-time-prefix "* "
+      org-journal-date-format "%a,%Y-%m-%d"
+      org-journal-file-format "%Y-%m-%d.org"
       )
 
 ;; Org Download
