@@ -89,12 +89,17 @@
         )
       )
 
-; (use-package org-roam
-;   :ensure t
-;   :init
-;   (setq org-roam-v2-ack t)
-;   :custom
-;   (org-roam-directory "~/projects/zameen/org_files"))
+;; Org Download
+
+(use-package! org-download
+  :after org
+  :bind
+  (:map org-mode-map
+        (("s-Y" . org-download-screenshot)
+         ("s-y" . org-download-yank)
+         ("s-r" . org-download-clipboard)
+         )))
+
 (setq org-download-screenshot-method "shotgun -g $(hacksaw) %s")
 ;;(setq org-download-screenshot-method "flameshot gui --raw > %s")
 
