@@ -106,6 +106,9 @@
 (setq org-download-screenshot-method "shotgun -g $(hacksaw) %s")
 ;;(setq org-download-screenshot-method "flameshot gui --raw > %s")
 
+;; Bibliography
+(setq citar-bibliography '("~/bib/zotero-biblatex.bib"))
+
 (use-package deft
   :after org
   :bind
