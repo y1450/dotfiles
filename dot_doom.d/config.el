@@ -148,7 +148,7 @@
              org-roam-review-list-recently-added)
 
   ;; ;; Optional - tag all newly-created notes as seedlings.
-  ;; :hook (org-roam-capture-new-node . org-roam-review-set-seedling)
+  :hook (org-roam-capture-new-node . org-roam-review-set-seedling)
 
   ;; ;; Optional - keybindings for applying Evergreen note properties.
   ;; :general
