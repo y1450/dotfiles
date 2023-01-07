@@ -54,3 +54,9 @@
 (package! org-roam-bibtex
   :recipe (:host github :repo "org-roam/org-roam-bibtex"))
 (unpin! bibtex-completion helm-bibtex ivy-bibtex)
+
+;; setup instruction from org roam ui
+;; https://github.com/org-roam/org-roam-ui/blob/5ac74960231db0bf7783c2ba7a19a60f582e91ab/README.md
+
+(unpin! org-roam)
+(package! org-roam-ui)
