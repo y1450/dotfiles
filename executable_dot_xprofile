@@ -28,6 +28,7 @@ exec dwmblocks 2>&1 >/dev/null &
 exec xss-lock -- slock &
 exec dunst &
 exec clipmenud &
+exec flameshot &
 
 
 xcape -t 1000 -e 'Mode_switch=Escape'
