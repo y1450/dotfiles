@@ -29,6 +29,8 @@ exec xss-lock -- slock &
 exec dunst &
 exec clipmenud &
 exec flameshot &
+# create a terinal that is spanned on tag 2 handled by dwm
+exec alacritty --class "tmux-workspace" &
 
 
 xcape -t 1000 -e 'Mode_switch=Escape'
