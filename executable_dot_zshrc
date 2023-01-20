@@ -143,3 +143,4 @@ fi
 export PATH=/home/rahul/.local/bin:$PATH 
 alias tkill="for s in \$(tmux list-sessions | awk '{print \$1}' | rg ':' -r '' | fzf); do tmux kill-session -t \$s; done;"
 export PATH=$PATH:$(go env GOROOT)/bin:$(go env GOPATH)/bin
+eval "$(direnv hook zsh)"
